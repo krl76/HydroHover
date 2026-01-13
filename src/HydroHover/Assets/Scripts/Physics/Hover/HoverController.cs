@@ -1,0 +1,81 @@
+﻿using Infrastructure.Services.Input;
+using UnityEngine;
+using Zenject;
+
+namespace Physics.Hover
+{
+    [RequireComponent(typeof(Rigidbody))]
+    public class HoverController : MonoBehaviour
+    {
+        [Header("Components")]
+        [SerializeField] private HoverCushion _cushion;
+        [SerializeField] private HoverEngine _liftEngine;
+        [SerializeField] private HoverEngine _thrustEngine;
+        [SerializeField] private Transform _thrustPoint;
+
+        [Header("Power Config")]
+        [SerializeField] private float _forwardForceMultiplier = 5000f;
+        [SerializeField] private float _turnTorque = 3000f;
+        
+        public HoverEngine LiftEngine => _liftEngine;
+        public HoverEngine ThrustEngine => _thrustEngine;
+        public Rigidbody Rb => _rb;
+
+        private Rigidbody _rb;
+        private IInputService _input;
+
+        [Inject]
+        public void Construct(IInputService input)
+        {
+            _input = input;
+        }
+
+        private void Awake()
+        {
+            _rb = GetComponent<Rigidbody>();
+            if (_cushion == null) _cushion = GetComponent<HoverCushion>();
+            
+            if (_cushion != null && _cushion.CenterOfMass != null)
+            {
+                _rb.centerOfMass = _cushion.CenterOfMass.localPosition;
+            }
+        }
+
+        private void Update()
+        {
+            if (_input == null) return;
+            
+            float liftInput = _input.LiftInput;
+            Vector2 moveInput = _input.MoveInput;
+            
+            float finalLift = Mathf.Clamp01(0.5f + liftInput * 0.5f);
+        
+            if (_liftEngine) _liftEngine.SetThrottle(finalLift);
+            if (_thrustEngine) _thrustEngine.SetThrottle(moveInput.y);
+        }
+
+        private void FixedUpdate()
+        {
+            float dt = Time.fixedDeltaTime;
+            
+            if (_liftEngine) _liftEngine.CalculatePhysics(dt);
+            if (_thrustEngine) _thrustEngine.CalculatePhysics(dt);
+            
+            if (_cushion != null && _liftEngine != null)
+            {
+                float liftFactor = _liftEngine.CurrentRPM / _liftEngine.MaxRPM;
+                _cushion.LiftEfficiency = liftFactor;
+            }
+            
+            if (_thrustPoint != null && _thrustEngine != null)
+            {
+                // F = Torque * Multiplier
+                Vector3 force = transform.forward * (_thrustEngine.CurrentTorque * _forwardForceMultiplier);
+                _rb.AddForceAtPosition(force, _thrustPoint.position);
+            }
+            
+            float turn = _input.MoveInput.x * _turnTorque;
+            _rb.AddRelativeTorque(Vector3.up * turn);
+        }
+    }
+}
