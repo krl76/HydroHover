@@ -18,6 +18,7 @@ public class HoverCushion : MonoBehaviour
     [SerializeField] private float _damperForce = 2000f;
     
     public Transform CenterOfMass => _centerOfMass;
+    public Transform[] HoverPoints => _hoverPoints;
     
     public float LiftEfficiency { get; set; } = 1.0f;
 

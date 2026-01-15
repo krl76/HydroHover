@@ -17,6 +17,9 @@ namespace Physics.Hover
         [SerializeField] private float _forwardForceMultiplier = 5000f;
         [SerializeField] private float _turnTorque = 3000f;
         
+        [Header("Aerodynamics")]
+        [SerializeField] private HoverAerodynamics _aerodynamics;
+        
         public HoverEngine LiftEngine => _liftEngine;
         public HoverEngine ThrustEngine => _thrustEngine;
         public Rigidbody Rb => _rb;
@@ -52,6 +55,7 @@ namespace Physics.Hover
         
             if (_liftEngine) _liftEngine.SetThrottle(finalLift);
             if (_thrustEngine) _thrustEngine.SetThrottle(moveInput.y);
+            if (_aerodynamics) _aerodynamics.SteerInput = _input.MoveInput.x;
         }
 
         private void FixedUpdate()
@@ -73,9 +77,6 @@ namespace Physics.Hover
                 Vector3 force = transform.forward * (_thrustEngine.CurrentTorque * _forwardForceMultiplier);
                 _rb.AddForceAtPosition(force, _thrustPoint.position);
             }
-            
-            float turn = _input.MoveInput.x * _turnTorque;
-            _rb.AddRelativeTorque(Vector3.up * turn);
         }
     }
 }
