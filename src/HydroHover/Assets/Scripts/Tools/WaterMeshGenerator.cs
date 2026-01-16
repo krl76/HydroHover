@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using UnityEditor;
+using UnityEngine;
 
 namespace Tools
 {
@@ -54,5 +55,27 @@ namespace Tools
             mf.mesh = mesh;
             Debug.Log($"Water Mesh Generated: {vertices.Length} vertices.");
         }
+        
+#if UNITY_EDITOR
+        [ContextMenu("Save Mesh as Asset")]
+        public void SaveAsset()
+        {
+            MeshFilter mf = GetComponent<MeshFilter>();
+            if (mf == null || mf.sharedMesh == null)
+            {
+                Debug.LogError("No mesh to save!");
+                return;
+            }
+
+            string path = "Assets/Assets/Meshes/WaterSurfaceMesh.asset";
+            
+            System.IO.Directory.CreateDirectory("Assets/Assets/Meshes");
+
+            AssetDatabase.CreateAsset(mf.sharedMesh, path);
+            AssetDatabase.SaveAssets();
+        
+            Debug.Log($"Mesh saved to {path}");
+        }
+#endif
     }
 }
