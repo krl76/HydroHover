@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Cysharp.Threading.Tasks; // UniTask
-using Data;
-using Infrastructure.Services;
+using Cysharp.Threading.Tasks;
 using Infrastructure.Services.Window;
 using UnityEngine;
 using UnityEngine.AddressableAssets;

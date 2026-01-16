@@ -1,5 +1,5 @@
-﻿using Data;
-using Infrastructure.Services.SceneManagement;
+﻿using Core.States.Base;
+using Core.States.Core;
 using UnityEngine;
 using Zenject;
 
@@ -7,19 +7,17 @@ namespace Core
 {
     public class Bootstrap : MonoBehaviour
     {
-        private ISceneLoaderService _sceneLoader;
-        
+        private GameStateMachine _stateMachine;
+
         [Inject]
-        public void Construct(ISceneLoaderService sceneLoader)
+        public void Construct(GameStateMachine stateMachine)
         {
-            _sceneLoader = sceneLoader;
+            _stateMachine = stateMachine;
         }
 
         private void Start()
         {
-            Debug.Log("Bootstrap: Services Initialized. Loading Gameplay...");
-            
-            _sceneLoader.LoadScene(ScenesPaths.GAMEPLAY);
+            _stateMachine.Enter<BootstrapState>();
         }
     }
 }
