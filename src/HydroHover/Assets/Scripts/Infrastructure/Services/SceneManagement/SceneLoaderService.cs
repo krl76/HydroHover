@@ -1,12 +1,44 @@
-﻿using UnityEngine.SceneManagement;
+﻿using Cysharp.Threading.Tasks;
+using Infrastructure.Services.Window;
+using UI.Loading;
+using UnityEngine.AddressableAssets;
+using UnityEngine.SceneManagement;
 
 namespace Infrastructure.Services.SceneManagement
 {
     public class SceneLoaderService : ISceneLoaderService
     {
-        public void LoadScene(string sceneName)
+        private readonly IWindowService _windowService;
+
+        public SceneLoaderService(IWindowService windowService)
         {
-            SceneManager.LoadScene(sceneName);
+            _windowService = windowService;
+        }
+
+        public async void LoadScene(string sceneAddress)
+        {
+            await LoadSceneAsync(sceneAddress);
+        }
+
+        private async UniTask LoadSceneAsync(string sceneAddress)
+        {
+            var loadingWindow = await _windowService.OpenAndGet<LoadingScreenWindow>(WindowID.Loading);
+            loadingWindow.UpdateProgress(0);
+            
+            var loadOp = Addressables.LoadSceneAsync(sceneAddress, LoadSceneMode.Single);
+            
+            while (!loadOp.IsDone)
+            {
+                loadingWindow.UpdateProgress(loadOp.PercentComplete);
+                
+                await UniTask.Yield();
+            }
+            
+            loadingWindow.UpdateProgress(1f);
+            
+            await UniTask.Delay(500);
+    
+            _windowService.Close(WindowID.Loading);
         }
     }
 }

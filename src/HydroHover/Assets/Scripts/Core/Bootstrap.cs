@@ -1,4 +1,5 @@
-﻿using Infrastructure.Services.SceneManagement;
+﻿using Data;
+using Infrastructure.Services.SceneManagement;
 using UnityEngine;
 using Zenject;
 
@@ -18,7 +19,7 @@ namespace Core
         {
             Debug.Log("Bootstrap: Services Initialized. Loading Gameplay...");
             
-            _sceneLoader.LoadScene("Gameplay");
+            _sceneLoader.LoadScene(ScenesPaths.GAMEPLAY);
         }
     }
 }

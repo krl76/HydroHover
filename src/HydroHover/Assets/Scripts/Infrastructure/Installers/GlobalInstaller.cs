@@ -1,22 +1,29 @@
-﻿using Infrastructure.Services.Input;
+﻿using Infrastructure.Factories;
+using Infrastructure.Services.Input;
 using Infrastructure.Services.SceneManagement;
+using Infrastructure.Services.Window;
 using Zenject;
 
-public class GlobalInstaller : MonoInstaller
+namespace Infrastructure.Installers
 {
-    public override void InstallBindings()
+    public class GlobalInstaller : MonoInstaller
     {
-        BindInputService();
-        BindSceneLoaderService();
-    }
-
-    private void BindInputService()
-    {
-        Container.BindInterfacesTo<InputService>().AsSingle();
-    }
+        public override void InstallBindings()
+        {
+            BindCoreSystems();
+            BindFactories();
+        }
     
-    private void BindSceneLoaderService()
-    {
-        Container.Bind<ISceneLoaderService>().To<SceneLoaderService>().AsSingle();
+        private void BindFactories()
+        {
+            Container.Bind<IUIFactory>().To<UIFactory>().AsSingle();
+        }
+    
+        private void BindCoreSystems()
+        {
+            Container.BindInterfacesTo<InputService>().AsSingle();
+            Container.Bind<ISceneLoaderService>().To<SceneLoaderService>().AsSingle();
+            Container.Bind<IWindowService>().To<WindowService>().AsSingle();
+        }
     }
 }
