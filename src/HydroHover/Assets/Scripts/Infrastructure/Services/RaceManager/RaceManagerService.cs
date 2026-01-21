@@ -16,9 +16,19 @@ namespace Infrastructure.Services.RaceManager
         private int _currentIndex = 0;
         private float _startTime;
         private bool _isActive;
+        private float _finishTime;
 
         public bool IsRaceActive => _isActive;
-        public float CurrentTime => _isActive ? Time.time - _startTime : 0f;
+        
+        public float CurrentTime
+        {
+            get
+            {
+                if (_isActive) return Time.time - _startTime;
+                return _finishTime;
+            }
+        }
+        
         public int CurrentCheckpointIndex => _currentIndex;
         public int TotalCheckpoints => _checkpoints.Count;
 
@@ -57,6 +67,7 @@ namespace Infrastructure.Services.RaceManager
             }
 
             _currentIndex = 0;
+            _finishTime = 0f;
             _startTime = Time.time;
             _isActive = true;
             
@@ -68,9 +79,13 @@ namespace Infrastructure.Services.RaceManager
 
         public void FinishRace()
         {
+            if (!_isActive) return;
+    
+            _finishTime = Time.time - _startTime;
             _isActive = false;
+    
             OnRaceFinished?.Invoke();
-            Debug.Log($"[RaceService] Finished! Time: {CurrentTime:F2}");
+            Debug.Log($"[RaceService] Finished! Final Time: {_finishTime:F2}");
         }
 
         private void HandleCheckpointEnter(int index)

@@ -1,6 +1,5 @@
 ﻿using Core.States.Base;
 using Infrastructure.Services.Window;
-using UnityEngine;
 
 namespace Core.States.Game
 {
@@ -15,12 +14,9 @@ namespace Core.States.Game
         
         public async void Enter()
         {
-            Debug.Log("Entered GameLoopState");
             await _windowService.Open(WindowID.HUD);
         }
 
-        public void Exit()
-        {
-        }
+        public void Exit() { }
     }
 }
