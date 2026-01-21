@@ -1,7 +1,4 @@
-﻿using Infrastructure.Factories;
-using Infrastructure.Services.RaceManager;
-using Physics.Enviroment;
-using Physics.Hover;
+﻿using Physics.Enviroment;
 using Physics.Water;
 using UnityEngine;
 using Zenject;
@@ -18,12 +15,6 @@ namespace Infrastructure.Installers
         {
             BindWaterSystem();
             BindWindSystem();
-            BindRaceSystem();
-        }
-
-        private void BindRaceSystem()
-        {
-            Container.Bind<IRaceManagerService>().To<RaceManagerService>().AsSingle();
         }
 
         private void BindWaterSystem()

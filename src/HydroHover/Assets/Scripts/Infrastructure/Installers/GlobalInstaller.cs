@@ -3,6 +3,7 @@ using Infrastructure.Factories;
 using Infrastructure.Providers.Assets;
 using Infrastructure.Services.Input;
 using Infrastructure.Services.Player;
+using Infrastructure.Services.RaceManager;
 using Infrastructure.Services.SceneManagement;
 using Infrastructure.Services.Window;
 using Zenject;
@@ -37,6 +38,7 @@ namespace Infrastructure.Installers
             Container.Bind<ISceneLoaderService>().To<SceneLoaderService>().AsSingle();
             Container.Bind<IWindowService>().To<WindowService>().AsSingle();
             Container.Bind<IPlayerService>().To<PlayerService>().AsSingle();
+            Container.Bind<IRaceManagerService>().To<RaceManagerService>().AsSingle();
         }
     }
 }

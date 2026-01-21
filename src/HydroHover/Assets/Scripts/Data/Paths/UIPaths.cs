@@ -1,4 +1,4 @@
-﻿namespace Data
+﻿namespace Data.Paths
 {
     public static class UIPaths
     {

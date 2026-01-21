@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using Data;
+using Data.Paths;
 using Infrastructure.Factories;
 using UnityEngine;
 
