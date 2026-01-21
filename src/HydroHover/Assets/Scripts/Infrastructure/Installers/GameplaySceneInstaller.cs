@@ -1,4 +1,6 @@
-﻿using Physics.Enviroment;
+﻿using Infrastructure.Factories;
+using Infrastructure.Services.RaceManager;
+using Physics.Enviroment;
 using Physics.Hover;
 using Physics.Water;
 using UnityEngine;
@@ -11,13 +13,17 @@ namespace Infrastructure.Installers
         [SerializeField] private WaveSettings _waveSettings;
         [SerializeField] private WaterPhysicsSystem _waterSystem;
         [SerializeField] private WindSystem _windSystem;
-        [SerializeField] private HoverController _hoverController;
 
         public override void InstallBindings()
         {
             BindWaterSystem();
             BindWindSystem();
-            BindHoverSystem();
+            BindRaceSystem();
+        }
+
+        private void BindRaceSystem()
+        {
+            Container.Bind<IRaceManagerService>().To<RaceManagerService>().AsSingle();
         }
 
         private void BindWaterSystem()
@@ -29,11 +35,6 @@ namespace Infrastructure.Installers
         private void BindWindSystem()
         {
             Container.BindInstance(_windSystem).AsSingle();
-        }
-        
-        private void BindHoverSystem()
-        {
-            Container.BindInstance(_hoverController).AsSingle();
         }
     }
 }

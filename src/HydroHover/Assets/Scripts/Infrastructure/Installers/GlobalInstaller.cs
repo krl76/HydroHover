@@ -1,6 +1,8 @@
 ﻿using Core.States.Base;
 using Infrastructure.Factories;
+using Infrastructure.Providers.Assets;
 using Infrastructure.Services.Input;
+using Infrastructure.Services.Player;
 using Infrastructure.Services.SceneManagement;
 using Infrastructure.Services.Window;
 using Zenject;
@@ -13,12 +15,19 @@ namespace Infrastructure.Installers
         {
             BindCoreSystems();
             BindFactories();
+            BindProviders();
         }
-    
+
+        private void BindProviders()
+        {
+            Container.BindInterfacesTo<AssetsAddressablesProvider>().AsSingle();
+        }
+
         private void BindFactories()
         {
             Container.Bind<IStateFactory>().To<StateFactory>().AsSingle();
             Container.Bind<IUIFactory>().To<UIFactory>().AsSingle();
+            Container.Bind<IGameObjectFactory>().To<GameObjectFactory>().AsSingle();
         }
     
         private void BindCoreSystems()
@@ -27,6 +36,7 @@ namespace Infrastructure.Installers
             Container.BindInterfacesTo<InputService>().AsSingle();
             Container.Bind<ISceneLoaderService>().To<SceneLoaderService>().AsSingle();
             Container.Bind<IWindowService>().To<WindowService>().AsSingle();
+            Container.Bind<IPlayerService>().To<PlayerService>().AsSingle();
         }
     }
 }

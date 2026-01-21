@@ -1,62 +1,81 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Cysharp.Threading.Tasks;
 using Infrastructure.Services.Window;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
-using Zenject;
+
 
 namespace Infrastructure.Factories
 {
     public interface IUIFactory
     {
-        Task CreateScreen(string path, WindowID id);
-        void DestroyScreen(WindowID id);
-        T GetScreenComponent<T>(WindowID id) where T : Component;
-        bool Exists(WindowID id);
+        Task<GameObject> CreateScreen(string assetAddress, WindowID windowId);
+        T GetScreenComponent<T>(WindowID windowId) where T : Component;
+        void DestroyScreen(WindowID windowId);
+        bool Exists(WindowID windowId);
     }
 
     public class UIFactory : IUIFactory
     {
-        private readonly DiContainer _container;
-        
-        private readonly Dictionary<WindowID, GameObject> _createdWindows = new();
+        private readonly IGameObjectFactory _gameObjectFactory;
+        private readonly Dictionary<WindowID, GameObject> _screenInstances = new();
 
-        public UIFactory(DiContainer container)
+        public UIFactory(
+            IGameObjectFactory gameObjectFactory
+        )
         {
-            _container = container;
+            _gameObjectFactory = gameObjectFactory;
         }
 
-        public async Task CreateScreen(string path, WindowID id)
+        public async Task<GameObject> CreateScreen(string assetAddress, WindowID windowId)
         {
-            if (_createdWindows.ContainsKey(id)) return;
-            
-            var handle = Addressables.InstantiateAsync(path);
-            GameObject windowInstance = await handle.ToUniTask();
-            
-            _container.InjectGameObject(windowInstance);
-
-            _createdWindows[id] = windowInstance;
-        }
-
-        public void DestroyScreen(WindowID id)
-        {
-            if (_createdWindows.TryGetValue(id, out var window))
+            if (_screenInstances.ContainsKey(windowId))
             {
-                Addressables.ReleaseInstance(window);
-                _createdWindows.Remove(id);
-            }
-        }
+                Debug.LogWarning($"Экран с WindowID {windowId} уже существует.. " +
+                                 $"Замена существующего экранного объекта.");
 
-        public T GetScreenComponent<T>(WindowID id) where T : Component
-        {
-            if (_createdWindows.TryGetValue(id, out var window))
-            {
-                return window.GetComponent<T>();
+                DestroyScreen(windowId);
             }
+
+            var instance = await _gameObjectFactory.InstantiateAsync(assetAddress);
+
+            if (_screenInstances.TryAdd(windowId, instance))
+            {
+                return instance;
+            }
+
+            Object.Destroy(instance);
             return null;
         }
 
-        public bool Exists(WindowID id) => _createdWindows.ContainsKey(id);
+        public T GetScreenComponent<T>(WindowID windowId) where T : Component
+        {
+            if (_screenInstances.TryGetValue(windowId, out var screenObject))
+            {
+                var screenComponent = screenObject.GetComponent<T>();
+                if (screenComponent != null)
+                {
+                    return screenComponent;
+                }
+
+                Debug.LogError($"Компонент экрана типа {typeof(T)} не найден");
+                return null;
+            }
+
+            Debug.LogError($"Экран с WindowID {windowId} не найден");
+            return null;
+        }
+
+        public void DestroyScreen(WindowID windowId)
+        {
+            if (!_screenInstances.Remove(windowId, out var screenObject))
+            {
+                Debug.LogWarning($"Экран с WindowID {windowId} не найден");
+                return;
+            }
+
+            _gameObjectFactory.Destroy(screenObject);
+        }
+
+        public bool Exists(WindowID windowId) => _screenInstances.ContainsKey(windowId);
     }
 }

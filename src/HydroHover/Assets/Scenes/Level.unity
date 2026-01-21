@@ -860,6 +860,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 39050848}
+  - component: {fileID: 39050849}
   m_Layer: 0
   m_Name: BuoysGroup
   m_TagString: Untagged
@@ -896,6 +897,18 @@ Transform:
   - {fileID: 1028542892}
   m_Father: {fileID: 1567226794}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &39050849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 39050847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0da9281a22684481aba934f518a9a022, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Features.Checkpoint.TrackData
 --- !u!4 &40582419 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6800746890700373111, guid: 0f95aba98c07f443c833c5483fbc4c1c, type: 3}
@@ -1977,6 +1990,7 @@ GameObject:
   m_Component:
   - component: {fileID: 113042799}
   - component: {fileID: 113042800}
+  - component: {fileID: 113042801}
   m_Layer: 0
   m_Name: Trigger
   m_TagString: Untagged
@@ -1992,13 +2006,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 113042798}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.40257806, z: -0, w: 0.91538566}
-  m_LocalPosition: {x: 4.85, y: 13.37, z: -11.13}
+  m_LocalRotation: {x: -0, y: -0.9319412, z: -0, w: 0.36260962}
+  m_LocalPosition: {x: 4.9161887, y: 13.37, z: 12.564869}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1875328192}
-  m_LocalEulerAnglesHint: {x: 0, y: -47.479, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -137.479, z: 0}
 --- !u!65 &113042800
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2018,8 +2032,20 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 19.23185, z: 39.667355}
-  m_Center: {x: 0.00019333445, y: 9.11591, z: 15.812622}
+  m_Size: {x: 43.5206, y: 19.23185, z: 7.5285034}
+  m_Center: {x: 0.77140397, y: 9.11591, z: 16.73709}
+--- !u!114 &113042801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113042798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9db9bf825854bc6a5c71700128c15f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Features.Trigger.CheckpointTrigger
 --- !u!1001 &138783742
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4928,6 +4954,7 @@ GameObject:
   m_Component:
   - component: {fileID: 261781543}
   - component: {fileID: 261781544}
+  - component: {fileID: 261781545}
   m_Layer: 0
   m_Name: Trigger
   m_TagString: Untagged
@@ -4943,13 +4970,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 261781542}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.40257806, z: -0, w: 0.91538566}
-  m_LocalPosition: {x: 4.85, y: 13.37, z: -11.13}
+  m_LocalRotation: {x: -0, y: -0.92842466, z: -0, w: 0.37152088}
+  m_LocalPosition: {x: 4.5, y: 13.37, z: 10.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1106570422}
-  m_LocalEulerAnglesHint: {x: 0, y: -47.479, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -136.381, z: 0}
 --- !u!65 &261781544
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4969,8 +4996,20 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 19.23185, z: 39.667355}
-  m_Center: {x: 0.00019333445, y: 9.11591, z: 15.812622}
+  m_Size: {x: 43.5206, y: 19.23185, z: 7.5285034}
+  m_Center: {x: 0.77140397, y: 9.11591, z: 16.73709}
+--- !u!114 &261781545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 261781542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9db9bf825854bc6a5c71700128c15f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Features.Trigger.CheckpointTrigger
 --- !u!64 &266405186
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -8417,6 +8456,7 @@ GameObject:
   m_Component:
   - component: {fileID: 445055023}
   - component: {fileID: 445055024}
+  - component: {fileID: 445055025}
   m_Layer: 0
   m_Name: Trigger
   m_TagString: Untagged
@@ -8432,13 +8472,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 445055022}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.40257806, z: -0, w: 0.91538566}
-  m_LocalPosition: {x: 4.85, y: 13.37, z: -11.13}
+  m_LocalRotation: {x: -0, y: -0.931941, z: -0, w: 0.3626102}
+  m_LocalPosition: {x: 3.8830605, y: 13.37, z: 11.211502}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1097986602}
-  m_LocalEulerAnglesHint: {x: 0, y: -47.479, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -137.479, z: 0}
 --- !u!65 &445055024
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8458,8 +8498,20 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 19.23185, z: 39.667355}
-  m_Center: {x: 0.00019333445, y: 9.11591, z: 15.812622}
+  m_Size: {x: 43.5206, y: 19.23185, z: 7.5285034}
+  m_Center: {x: 0.77140397, y: 9.11591, z: 16.73709}
+--- !u!114 &445055025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 445055022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9db9bf825854bc6a5c71700128c15f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Features.Trigger.CheckpointTrigger
 --- !u!1 &446746401
 GameObject:
   m_ObjectHideFlags: 0
@@ -12545,6 +12597,7 @@ GameObject:
   m_Component:
   - component: {fileID: 581628367}
   - component: {fileID: 581628368}
+  - component: {fileID: 581628369}
   m_Layer: 0
   m_Name: Trigger
   m_TagString: Untagged
@@ -12560,13 +12613,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 581628366}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.40257806, z: -0, w: 0.91538566}
-  m_LocalPosition: {x: 4.85, y: 13.37, z: -11.13}
+  m_LocalRotation: {x: -0, y: -0.92842346, z: -0, w: 0.37152395}
+  m_LocalPosition: {x: 3.3, y: 13.37, z: 11.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 289937191}
-  m_LocalEulerAnglesHint: {x: 0, y: -47.479, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -136.381, z: 0}
 --- !u!65 &581628368
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12586,8 +12639,20 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 19.23185, z: 39.667355}
-  m_Center: {x: 0.00019333445, y: 9.11591, z: 15.812622}
+  m_Size: {x: 43.5206, y: 19.23185, z: 7.5285034}
+  m_Center: {x: 0.77140397, y: 9.11591, z: 16.73709}
+--- !u!114 &581628369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 581628366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9db9bf825854bc6a5c71700128c15f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Features.Trigger.CheckpointTrigger
 --- !u!1001 &585791127
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18463,6 +18528,7 @@ GameObject:
   m_Component:
   - component: {fileID: 793545664}
   - component: {fileID: 793545665}
+  - component: {fileID: 793545666}
   m_Layer: 0
   m_Name: Trigger
   m_TagString: Untagged
@@ -18478,13 +18544,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 793545663}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.40257806, z: -0, w: 0.91538566}
-  m_LocalPosition: {x: 4.85, y: 13.37, z: -11.13}
+  m_LocalRotation: {x: -0, y: -0.92842317, z: -0, w: 0.3715245}
+  m_LocalPosition: {x: 4.9, y: 13.37, z: 9.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 45371676}
-  m_LocalEulerAnglesHint: {x: 0, y: -47.479, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -136.381, z: 0}
 --- !u!65 &793545665
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18504,8 +18570,20 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 19.23185, z: 39.667355}
-  m_Center: {x: 0.00019333445, y: 9.11591, z: 15.812622}
+  m_Size: {x: 43.5206, y: 19.23185, z: 7.5285034}
+  m_Center: {x: 0.77140397, y: 9.11591, z: 16.73709}
+--- !u!114 &793545666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793545663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9db9bf825854bc6a5c71700128c15f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Features.Trigger.CheckpointTrigger
 --- !u!1001 &810332954
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23150,6 +23228,7 @@ GameObject:
   m_Component:
   - component: {fileID: 988327435}
   - component: {fileID: 988327436}
+  - component: {fileID: 988327437}
   m_Layer: 0
   m_Name: Trigger
   m_TagString: Untagged
@@ -23165,13 +23244,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 988327434}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.40257806, z: -0, w: 0.91538566}
-  m_LocalPosition: {x: 4.85, y: 13.37, z: -11.13}
+  m_LocalRotation: {x: -0, y: -0.9284242, z: -0, w: 0.37152207}
+  m_LocalPosition: {x: 5.3, y: 13.37, z: 12.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1415617066}
-  m_LocalEulerAnglesHint: {x: 0, y: -47.479, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -136.381, z: 0}
 --- !u!65 &988327436
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23191,8 +23270,20 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 19.23185, z: 39.667355}
-  m_Center: {x: 0.00019333445, y: 9.11591, z: 15.812622}
+  m_Size: {x: 43.5206, y: 19.23185, z: 7.5285034}
+  m_Center: {x: 0.77140397, y: 9.11591, z: 16.73709}
+--- !u!114 &988327437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 988327434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9db9bf825854bc6a5c71700128c15f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Features.Trigger.CheckpointTrigger
 --- !u!1001 &990179333
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30869,6 +30960,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1249865700}
   - component: {fileID: 1249865701}
+  - component: {fileID: 1249865702}
   m_Layer: 0
   m_Name: Trigger
   m_TagString: Untagged
@@ -30884,13 +30976,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1249865699}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.40257806, z: -0, w: 0.91538566}
-  m_LocalPosition: {x: 4.85, y: 13.37, z: -11.13}
+  m_LocalRotation: {x: -0, y: -0.92842376, z: -0, w: 0.371523}
+  m_LocalPosition: {x: 2.4, y: 13.37, z: 11.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 738767710}
-  m_LocalEulerAnglesHint: {x: 0, y: -47.479, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -136.381, z: 0}
 --- !u!65 &1249865701
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -30910,8 +31002,20 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 19.23185, z: 39.667355}
-  m_Center: {x: 0.00019333445, y: 9.11591, z: 15.812622}
+  m_Size: {x: 43.5206, y: 19.23185, z: 7.5285034}
+  m_Center: {x: 0.77140397, y: 9.11591, z: 16.73709}
+--- !u!114 &1249865702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1249865699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9db9bf825854bc6a5c71700128c15f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Features.Trigger.CheckpointTrigger
 --- !u!1001 &1259594528
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31210,6 +31314,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1268760388}
   - component: {fileID: 1268760389}
+  - component: {fileID: 1268760390}
   m_Layer: 0
   m_Name: Trigger
   m_TagString: Untagged
@@ -31225,13 +31330,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1268760387}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.40257806, z: -0, w: 0.91538566}
-  m_LocalPosition: {x: 4.85, y: 13.37, z: -11.13}
+  m_LocalRotation: {x: -0, y: -0.92842346, z: -0, w: 0.3715238}
+  m_LocalPosition: {x: 5, y: 13.37, z: 11.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 448749618}
-  m_LocalEulerAnglesHint: {x: 0, y: -47.479, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -136.381, z: 0}
 --- !u!65 &1268760389
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -31251,8 +31356,20 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 19.23185, z: 39.667355}
-  m_Center: {x: 0.00019333445, y: 9.11591, z: 15.812622}
+  m_Size: {x: 43.5206, y: 19.23185, z: 7.5285034}
+  m_Center: {x: 0.77140397, y: 9.11591, z: 16.73709}
+--- !u!114 &1268760390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1268760387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9db9bf825854bc6a5c71700128c15f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Features.Trigger.CheckpointTrigger
 --- !u!1001 &1269435862
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37843,6 +37960,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1501813946}
   - component: {fileID: 1501813947}
+  - component: {fileID: 1501813948}
   m_Layer: 0
   m_Name: Trigger
   m_TagString: Untagged
@@ -37858,13 +37976,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1501813945}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.40257806, z: -0, w: 0.91538566}
-  m_LocalPosition: {x: 4.85, y: 13.37, z: -11.13}
+  m_LocalRotation: {x: -0, y: -0.92842317, z: -0, w: 0.3715245}
+  m_LocalPosition: {x: 5.3, y: 13.37, z: 12.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 370085164}
-  m_LocalEulerAnglesHint: {x: 0, y: -47.479, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -136.381, z: 0}
 --- !u!65 &1501813947
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -37884,8 +38002,20 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 19.23185, z: 39.667355}
-  m_Center: {x: 0.00019333445, y: 9.11591, z: 15.812622}
+  m_Size: {x: 43.5206, y: 19.23185, z: 7.5285034}
+  m_Center: {x: 0.77140397, y: 9.11591, z: 16.73709}
+--- !u!114 &1501813948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501813945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9db9bf825854bc6a5c71700128c15f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Features.Trigger.CheckpointTrigger
 --- !u!1001 &1503462657
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39400,6 +39530,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1570818454}
   - component: {fileID: 1570818455}
+  - component: {fileID: 1570818456}
   m_Layer: 0
   m_Name: Trigger
   m_TagString: Untagged
@@ -39415,13 +39546,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1570818453}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.40257806, z: -0, w: 0.91538566}
-  m_LocalPosition: {x: 4.85, y: 13.37, z: -11.13}
+  m_LocalRotation: {x: -0, y: -0.92842424, z: -0, w: 0.3715219}
+  m_LocalPosition: {x: 4.5, y: 13.37, z: 13.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1028542892}
-  m_LocalEulerAnglesHint: {x: 0, y: -47.479, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -136.381, z: 0}
 --- !u!65 &1570818455
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -39441,8 +39572,20 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 19.23185, z: 39.667355}
-  m_Center: {x: 0.00019333445, y: 9.11591, z: 15.812622}
+  m_Size: {x: 43.5206, y: 19.23185, z: 7.5285034}
+  m_Center: {x: 0.77140397, y: 9.11591, z: 16.73709}
+--- !u!114 &1570818456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1570818453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9db9bf825854bc6a5c71700128c15f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Features.Trigger.CheckpointTrigger
 --- !u!1 &1574272294
 GameObject:
   m_ObjectHideFlags: 0
@@ -39453,6 +39596,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1574272295}
   - component: {fileID: 1574272296}
+  - component: {fileID: 1574272297}
   m_Layer: 0
   m_Name: Trigger
   m_TagString: Untagged
@@ -39468,13 +39612,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1574272294}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.40257806, z: -0, w: 0.91538566}
-  m_LocalPosition: {x: 4.85, y: 13.37, z: -11.13}
+  m_LocalRotation: {x: -0, y: -0.9284224, z: -0, w: 0.37152627}
+  m_LocalPosition: {x: 4.2, y: 13.37, z: 10.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2101986063}
-  m_LocalEulerAnglesHint: {x: 0, y: -47.479, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -136.38, z: 0}
 --- !u!65 &1574272296
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -39494,8 +39638,20 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 19.23185, z: 39.667355}
-  m_Center: {x: 0.00019333445, y: 9.11591, z: 15.812622}
+  m_Size: {x: 43.5206, y: 19.23185, z: 7.5285034}
+  m_Center: {x: 0.77140397, y: 9.11591, z: 16.73709}
+--- !u!114 &1574272297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1574272294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9db9bf825854bc6a5c71700128c15f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Features.Trigger.CheckpointTrigger
 --- !u!1001 &1574683454
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41795,6 +41951,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1657990382}
   - component: {fileID: 1657990383}
+  - component: {fileID: 1657990384}
   m_Layer: 0
   m_Name: Trigger
   m_TagString: Untagged
@@ -41810,13 +41967,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1657990381}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.40257806, z: -0, w: 0.91538566}
-  m_LocalPosition: {x: 4.85, y: 13.37, z: -11.13}
+  m_LocalRotation: {x: -0, y: 0.94278115, z: -0, w: -0.33341232}
+  m_LocalPosition: {x: 3.3, y: 13.37, z: 12.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 923636764}
-  m_LocalEulerAnglesHint: {x: 0, y: -47.479, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 218.952, z: 0}
 --- !u!65 &1657990383
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -41836,8 +41993,20 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 19.23185, z: 39.667355}
-  m_Center: {x: 0.00019333445, y: 9.11591, z: 15.812622}
+  m_Size: {x: 43.5206, y: 19.23185, z: 7.5285034}
+  m_Center: {x: 0.77140397, y: 9.11591, z: 16.73709}
+--- !u!114 &1657990384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1657990381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9db9bf825854bc6a5c71700128c15f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Features.Trigger.CheckpointTrigger
 --- !u!1001 &1662087492
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45721,6 +45890,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1856988156}
   - component: {fileID: 1856988157}
+  - component: {fileID: 1856988158}
   m_Layer: 0
   m_Name: Trigger
   m_TagString: Untagged
@@ -45736,13 +45906,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1856988155}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.40257806, z: -0, w: 0.91538566}
-  m_LocalPosition: {x: 4.85, y: 13.37, z: -11.13}
+  m_LocalRotation: {x: -0, y: -0.9284235, z: -0, w: 0.37152344}
+  m_LocalPosition: {x: 4.8, y: 13.37, z: 11.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1053695446}
-  m_LocalEulerAnglesHint: {x: 0, y: -47.479, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -136.381, z: 0}
 --- !u!65 &1856988157
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -45762,8 +45932,20 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 19.23185, z: 39.667355}
-  m_Center: {x: 0.00019333445, y: 9.11591, z: 15.812622}
+  m_Size: {x: 43.5206, y: 19.23185, z: 7.5285034}
+  m_Center: {x: 0.77140397, y: 9.11591, z: 16.73709}
+--- !u!114 &1856988158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1856988155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9db9bf825854bc6a5c71700128c15f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Features.Trigger.CheckpointTrigger
 --- !u!1001 &1859666464
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -49820,6 +50002,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1999054448}
   - component: {fileID: 1999054449}
+  - component: {fileID: 1999054450}
   m_Layer: 0
   m_Name: Trigger
   m_TagString: Untagged
@@ -49835,13 +50018,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1999054447}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.40257806, z: -0, w: 0.91538566}
-  m_LocalPosition: {x: 4.85, y: 13.37, z: -11.13}
+  m_LocalRotation: {x: -0, y: -0.92842376, z: -0, w: 0.371523}
+  m_LocalPosition: {x: 2.4, y: 13.37, z: 11.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 385379923}
-  m_LocalEulerAnglesHint: {x: 0, y: -47.479, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -136.381, z: 0}
 --- !u!65 &1999054449
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -49861,8 +50044,20 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 19.23185, z: 39.667355}
-  m_Center: {x: 0.00019333445, y: 9.11591, z: 15.812622}
+  m_Size: {x: 43.5206, y: 19.23185, z: 7.5285034}
+  m_Center: {x: 0.77140397, y: 9.11591, z: 16.73709}
+--- !u!114 &1999054450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999054447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9db9bf825854bc6a5c71700128c15f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Features.Trigger.CheckpointTrigger
 --- !u!1001 &2009187463
 PrefabInstance:
   m_ObjectHideFlags: 0

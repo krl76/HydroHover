@@ -1,5 +1,5 @@
 ﻿using Cinemachine;
-using Physics.Hover;
+using Infrastructure.Services.Player;
 using UnityEngine;
 using Zenject;
 
@@ -17,10 +17,12 @@ namespace Features.Camera
         private CinemachineVirtualCamera _vcam;
         private Rigidbody _targetRb;
         
+        private IPlayerService _playerService;
+
         [Inject]
-        public void Construct(HoverController playerBoat)
+        public void Construct(IPlayerService playerService)
         {
-            _targetRb = playerBoat.GetComponent<Rigidbody>();
+            _playerService =  playerService;
         }
 
         private void Awake()
@@ -30,7 +32,11 @@ namespace Features.Camera
 
         private void Update()
         {
-            if (_targetRb == null) return;
+            if (_playerService.IsPlayerCreated && _targetRb == null)
+            {
+                _targetRb = _playerService.Transform.gameObject.GetComponent<Rigidbody>();
+                return;
+            }
 
             float currentSpeed = _targetRb.linearVelocity.magnitude;
             float t = Mathf.Clamp01(currentSpeed / _maxSpeedForEffect);
