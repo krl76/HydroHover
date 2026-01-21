@@ -18,15 +18,6 @@ namespace Features.Checkpoint
 
         private void Start()
         {
-            if (_raceManagerService == null)
-            {
-                var sceneContext = FindObjectOfType<SceneContext>();
-                if (sceneContext != null)
-                {
-                    sceneContext.Container.Inject(this);
-                }
-            }
-            
             var checkpoints = GetComponentsInChildren<CheckpointTrigger>().ToList();
             
             _raceManagerService.RegisterTrack(checkpoints);

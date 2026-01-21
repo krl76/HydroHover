@@ -20,18 +20,6 @@ namespace Physics.Water
             _waterSystem = waterSystem;
         }
         
-        private void Start()
-        {
-            if (_waterSystem == null)
-            {
-                var sceneContext = FindObjectOfType<SceneContext>();
-                if (sceneContext != null)
-                {
-                    sceneContext.Container.Inject(this);
-                }
-            }
-        }
-        
         private void Update()
         {
             if (_waterSystem == null) 

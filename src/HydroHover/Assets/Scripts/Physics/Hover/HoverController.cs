@@ -15,7 +15,6 @@ namespace Physics.Hover
 
         [Header("Power Config")]
         [SerializeField] private float _forwardForceMultiplier = 5000f;
-        [SerializeField] private float _turnTorque = 3000f;
         
         [Header("Aerodynamics")]
         [SerializeField] private HoverAerodynamics _aerodynamics;
