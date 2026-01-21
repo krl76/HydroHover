@@ -43,5 +43,10 @@ namespace Infrastructure.Services.SceneManagement
             
             onLoaded?.Invoke();
         }
+        
+        public async void LoadSceneAdditive(string sceneAddress)
+        {
+            await Addressables.LoadSceneAsync(sceneAddress, LoadSceneMode.Additive).ToUniTask();
+        }
     }
 }

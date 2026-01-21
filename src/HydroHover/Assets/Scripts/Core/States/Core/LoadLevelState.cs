@@ -1,5 +1,6 @@
 ﻿using Core.States.Base;
 using Core.States.Game;
+using Data;
 using Infrastructure.Services.SceneManagement;
 
 namespace Core.States.Core
@@ -17,12 +18,12 @@ namespace Core.States.Core
 
         public void Enter(string sceneName)
         {
-            _sceneLoader.LoadScene(sceneName, OnLoaded);
-        }
-
-        private void OnLoaded()
-        {
-            _stateMachine.Enter<GameLoopState>();
+            _sceneLoader.LoadScene(sceneName, () => 
+            {
+                _sceneLoader.LoadSceneAdditive(ScenesPaths.LEVEL);
+                
+                _stateMachine.Enter<GameLoopState>();
+            });
         }
 
         public void Exit()
