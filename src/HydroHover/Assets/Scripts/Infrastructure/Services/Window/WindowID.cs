@@ -11,5 +11,6 @@
         Pause = 4,
         Settings = 5,
         Finish = 6,
+        Leaderboard = 7,
     }
 }

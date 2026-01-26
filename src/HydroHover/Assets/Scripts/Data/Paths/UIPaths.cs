@@ -8,5 +8,6 @@
         public const string FINISH_SCREEN = "UI/FinishScreen";
         public const string PAUSE = "UI/PauseMenu";
         public const string SETTINGS = "UI/Settings";
+        public const string LEADERBOARD_SCREEN = "UI/LeaderboardScreen";
     }
 }

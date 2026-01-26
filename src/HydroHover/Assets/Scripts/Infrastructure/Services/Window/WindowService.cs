@@ -46,6 +46,7 @@ namespace Infrastructure.Services.Window
             WindowID.Pause => UIPaths.PAUSE,
             WindowID.Settings => UIPaths.SETTINGS,
             WindowID.Finish => UIPaths.FINISH_SCREEN,
+            WindowID.Leaderboard => UIPaths.LEADERBOARD_SCREEN,
             _ => null
         };
     }
