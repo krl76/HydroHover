@@ -474,7 +474,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI.Leaderboard.LeaderboardWindow
   _container: {fileID: 6837523808337287556}
-  _recordItemPrefab: {fileID: 3986598365001266050, guid: ed2959fb105018241b8ab0ee06ac4b5b, type: 3}
+  _recordItemPrefab: {fileID: 8796742595203494957, guid: ed2959fb105018241b8ab0ee06ac4b5b, type: 3}
   _closeButton: {fileID: 6100523821281407366}
 --- !u!1 &2683076101903918263
 GameObject:
@@ -663,15 +663,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.VerticalLayoutGroup
   m_Padding:
-    m_Left: 0
-    m_Right: 0
-    m_Top: 0
+    m_Left: 10
+    m_Right: 10
+    m_Top: 10
     m_Bottom: 0
   m_ChildAlignment: 0
-  m_Spacing: 0
+  m_Spacing: 20
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
-  m_ChildControlWidth: 0
+  m_ChildControlWidth: 1
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
