@@ -149,6 +149,7 @@ GameObject:
   - component: {fileID: 5444855966851097603}
   - component: {fileID: 7006546822394666099}
   - component: {fileID: 4125126495058947304}
+  - component: {fileID: 8118646334394109723}
   m_Layer: 5
   m_Name: Settings
   m_TagString: Untagged
@@ -258,6 +259,27 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8118646334394109723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2231442814389634045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls: []
+  - eventID: 9
+    callback:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!1 &4314272612031086204
 GameObject:
   m_ObjectHideFlags: 0
@@ -530,6 +552,7 @@ GameObject:
   - component: {fileID: 6646084284128569434}
   - component: {fileID: 487584990533795642}
   - component: {fileID: 3439968035467840998}
+  - component: {fileID: 2302947874483672858}
   m_Layer: 5
   m_Name: Play
   m_TagString: Untagged
@@ -639,6 +662,27 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2302947874483672858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6308268140792818358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls: []
+  - eventID: 9
+    callback:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!1 &6357738869093343770
 GameObject:
   m_ObjectHideFlags: 0
@@ -651,6 +695,7 @@ GameObject:
   - component: {fileID: 3146751528248669898}
   - component: {fileID: 1182188529609543924}
   - component: {fileID: 3727155883615989660}
+  - component: {fileID: 3170750622313733589}
   m_Layer: 5
   m_Name: Leaderboard
   m_TagString: Untagged
@@ -760,6 +805,27 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3170750622313733589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6357738869093343770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls: []
+  - eventID: 9
+    callback:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!1 &7514654985070080969
 GameObject:
   m_ObjectHideFlags: 0
@@ -909,6 +975,7 @@ GameObject:
   - component: {fileID: 1999495622242401202}
   - component: {fileID: 1437477673481893313}
   - component: {fileID: 1314210106535445439}
+  - component: {fileID: 584157649716812266}
   m_Layer: 5
   m_Name: Exit
   m_TagString: Untagged
@@ -1018,6 +1085,27 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &584157649716812266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8442473334034747286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls: []
+  - eventID: 9
+    callback:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!1 &8952232326647703150
 GameObject:
   m_ObjectHideFlags: 0

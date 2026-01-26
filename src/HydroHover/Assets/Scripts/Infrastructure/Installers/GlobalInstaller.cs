@@ -7,6 +7,7 @@ using Infrastructure.Services.Leaderboard;
 using Infrastructure.Services.Player;
 using Infrastructure.Services.RaceManager;
 using Infrastructure.Services.SceneManagement;
+using Infrastructure.Services.Settings;
 using Infrastructure.Services.Window;
 using Zenject;
 
@@ -43,6 +44,7 @@ namespace Infrastructure.Installers
             Container.Bind<IRaceManagerService>().To<RaceManagerService>().AsSingle();
             Container.Bind<ILeaderboardService>().To<LeaderboardService>().AsSingle();
             Container.Bind<IAudioService>().To<AudioService>().AsSingle();
+            Container.Bind<ISettingsService>().To<SettingsService>().AsSingle();
         }
     }
 }
