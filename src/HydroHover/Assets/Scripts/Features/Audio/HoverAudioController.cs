@@ -9,16 +9,21 @@ namespace Features.Audio
         [SerializeField] private AudioSource _liftSource;
         [SerializeField] private AudioSource _thrustSource;
         [SerializeField] private AudioSource _windSource;
+        [SerializeField] private AudioSource _waterSource;
 
         [Header("Settings")]
         [SerializeField] private float _minPitch = 0.8f;
         [SerializeField] private float _maxPitch = 1.5f;
 
         private HoverController _controller;
+        private HoverCushion _cushion;
         
         private void Awake()
         {
             _controller = GetComponent<HoverController>();
+            _cushion = GetComponent<HoverCushion>();
+
+            _cushion.OnWaterImpact += OnWaterImpact;
         }
 
         private void Update()
@@ -38,6 +43,11 @@ namespace Features.Audio
             // 3. Wind (зависит от скорости)
             float speed = _controller.Rb.linearVelocity.magnitude;
             _windSource.volume = Mathf.Clamp01(speed / 40f);
+        }
+        
+        private void OnWaterImpact(float impact)
+        {
+            _waterSource.Play();
         }
     }
 }

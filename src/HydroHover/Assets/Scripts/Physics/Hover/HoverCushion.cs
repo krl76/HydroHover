@@ -1,4 +1,5 @@
-﻿using Physics.Water;
+﻿using System;
+using Physics.Water;
 using UnityEngine;
 using Zenject;
 
@@ -22,7 +23,9 @@ public class HoverCushion : MonoBehaviour
     public Transform[] HoverPoints => _hoverPoints;
     
     public float LiftEfficiency { get; set; } = 1.0f;
-
+    public event Action<float> OnWaterImpact;
+    
+    
     private Rigidbody _rb;
     private WaterPhysicsSystem _waterSystem;
 
@@ -45,10 +48,23 @@ public class HoverCushion : MonoBehaviour
     private void FixedUpdate()
     {
         if (_hoverPoints == null) return;
+        
+        float maxImpact = 0f;
 
         foreach (var point in _hoverPoints)
         {
-            if (point != null) ApplyForceAtPoint(point);
+            if (point != null)
+            {
+                float impact = CalculateImpact(point);
+                if (impact > maxImpact) maxImpact = impact;
+                
+                ApplyForceAtPoint(point);
+            }
+        }
+        
+        if (maxImpact > 0.3f)
+        {
+            OnWaterImpact?.Invoke(maxImpact);
         }
     }
 
@@ -79,6 +95,20 @@ public class HoverCushion : MonoBehaviour
 
             _rb.AddForceAtPosition(Vector3.up * totalForce, point.position);
         }
+    }
+    
+    private float CalculateImpact(Transform point)
+    {
+        float waterHeight = _waterSystem.GetWaterHeightAt(point.position);
+        if (point.position.y < waterHeight)
+        {
+            float yVel = _rb.GetPointVelocity(point.position).y;
+            if (yVel < -2f)
+            {
+                return Mathf.Clamp01(Mathf.Abs(yVel) / 10f);
+            }
+        }
+        return 0f;
     }
 
     private void OnDrawGizmos()
