@@ -1,6 +1,7 @@
 ﻿using Core.States.Base;
 using Infrastructure.Factories;
 using Infrastructure.Providers.Assets;
+using Infrastructure.Services.Audio;
 using Infrastructure.Services.Input;
 using Infrastructure.Services.Leaderboard;
 using Infrastructure.Services.Player;
@@ -41,6 +42,7 @@ namespace Infrastructure.Installers
             Container.Bind<IPlayerService>().To<PlayerService>().AsSingle();
             Container.Bind<IRaceManagerService>().To<RaceManagerService>().AsSingle();
             Container.Bind<ILeaderboardService>().To<LeaderboardService>().AsSingle();
+            Container.Bind<IAudioService>().To<AudioService>().AsSingle();
         }
     }
 }
