@@ -73,3 +73,9 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+src/HydroHover/Assets/Scripts/all_sources.txt.meta
+src/HydroHover/Assets/Scripts/gluing-project-contents
+src/HydroHover/Assets/Scripts/gluing-project-contents.meta
+src/HydroHover/Assets/Scripts/all_sources.txt
+src/HydroHover/Assets/Scripts/gluing-project-contents
+src/HydroHover/Assets/Scripts/gluing-project-contents

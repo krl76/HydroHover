@@ -1,4 +1,5 @@
 ﻿using Core.States.Base;
+using Core.States.MainMenu;
 using Data;
 
 namespace Core.States.Core
@@ -14,7 +15,7 @@ namespace Core.States.Core
 
         public void Enter()
         {
-            _stateMachine.Enter<LoadLevelState, string>(ScenesPaths.GAMEPLAY);
+            _stateMachine.Enter<MainMenuState>();
         }
 
         public void Exit()

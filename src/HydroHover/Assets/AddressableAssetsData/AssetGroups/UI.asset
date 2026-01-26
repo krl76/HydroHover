@@ -15,6 +15,11 @@ MonoBehaviour:
   m_GroupName: UI
   m_GUID: b6cbb886fbcc9684eaabceec5d540005
   m_SerializeEntries:
+  - m_GUID: 324028b84b8d1ee468f5107bbb74b3b8
+    m_Address: UI/MainMenu
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3fb935d0b7d8bcb4b991f5db72dddc8d
     m_Address: UI/FinishScreen
     m_ReadOnly: 0

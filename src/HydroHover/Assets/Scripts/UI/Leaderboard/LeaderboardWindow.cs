@@ -48,6 +48,7 @@ namespace UI.Leaderboard
 
         private void Close()
         {
+            _windowService.Open(WindowID.MainMenu);
             _windowService.Close(WindowID.Leaderboard);
         }
     }
