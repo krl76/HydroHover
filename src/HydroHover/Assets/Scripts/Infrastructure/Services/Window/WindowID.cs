@@ -9,6 +9,7 @@
         MainMenu = 2,
         HUD = 3,
         Pause = 4,
-        Settings = 5
+        Settings = 5,
+        Finish = 6,
     }
 }

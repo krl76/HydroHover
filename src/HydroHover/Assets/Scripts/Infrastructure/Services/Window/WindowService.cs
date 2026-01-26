@@ -45,6 +45,7 @@ namespace Infrastructure.Services.Window
             WindowID.HUD => UIPaths.HUD,
             WindowID.Pause => UIPaths.PAUSE,
             WindowID.Settings => UIPaths.SETTINGS,
+            WindowID.Finish => UIPaths.FINISH_SCREEN,
             _ => null
         };
     }

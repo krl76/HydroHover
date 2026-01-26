@@ -11,5 +11,8 @@ namespace Infrastructure.Services.Input
 
         bool PauseTriggered { get; }
         bool ResetTriggered { get; }
+        
+        void Enable();
+        void Disable();
     }
 }

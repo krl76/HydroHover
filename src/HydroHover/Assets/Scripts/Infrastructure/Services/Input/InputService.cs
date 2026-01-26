@@ -13,18 +13,28 @@ namespace Infrastructure.Services.Input
 
         public bool PauseTriggered => _controls.Player.Pause.WasPressedThisFrame();
         public bool ResetTriggered => _controls.Player.Reset.WasPressedThisFrame();
+        
+        public void Enable()
+        {
+            _controls.Enable();
+        }
+
+        public void Disable()
+        {
+            _controls.Disable();
+            _controls.Dispose();
+        }
 
         public void Initialize()
         {
             _controls = new HoverControls();
-            _controls.Enable();
+            Enable();
             Debug.Log("[InputService] Initialized and Actions Enabled");
         }
 
         public void Dispose()
         {
-            _controls.Disable();
-            _controls.Dispose();
+            Disable();
             Debug.Log("[InputService] Disposed");
         }
     }
