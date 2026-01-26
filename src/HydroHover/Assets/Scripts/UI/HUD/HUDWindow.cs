@@ -1,4 +1,6 @@
-﻿using Infrastructure.Services.Player;
+﻿using System;
+using System.Collections;
+using Infrastructure.Services.Player;
 using Infrastructure.Services.RaceManager;
 using Physics.Hover;
 using TMPro;
@@ -14,6 +16,7 @@ namespace UI.HUD
         [SerializeField] private TextMeshProUGUI _speedText;
         [SerializeField] private TextMeshProUGUI _timerText;
         [SerializeField] private TextMeshProUGUI _checkpointText;
+        [SerializeField] private TextMeshProUGUI _fpsText;
         
         [Header("Speedometer")]
         [SerializeField] private RectTransform _speedNeedle;
@@ -31,11 +34,18 @@ namespace UI.HUD
 
         private HoverController _hoverController;
 
+        private float _fpsCount;
+
         [Inject]
         public void Construct(IPlayerService playerService, IRaceManagerService raceManagerService)
         {
             _playerService = playerService;
             _raceManagerService = raceManagerService;
+        }
+
+        private void Start()
+        {
+            UpdateGameMetrics();
         }
 
         private void Update()
@@ -79,6 +89,17 @@ namespace UI.HUD
             _timerText.text = $"{minutes:00}:{seconds:00}.{milliseconds:00}";
             
             _checkpointText.text = $"{_raceManagerService.CurrentCheckpointIndex} / {_raceManagerService.TotalCheckpoints}";
+
+            _fpsText.text = $"FPS: {Mathf.Round(_fpsCount)}";
+        }
+
+        private IEnumerator UpdateGameMetrics()
+        {
+            while (true)
+            {
+                _fpsCount = 1f / Time.unscaledDeltaTime;
+                yield return new WaitForSeconds(0.1f);
+            }
         }
     }
 }

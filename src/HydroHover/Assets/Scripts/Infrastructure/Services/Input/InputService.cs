@@ -13,7 +13,6 @@ namespace Infrastructure.Services.Input
         public bool HandbrakeInput => _controls.Player.Handbrake.IsPressed();
 
         public bool PauseTriggered => _controls.Player.Pause.WasPressedThisFrame();
-        public bool ResetTriggered => _controls.Player.Reset.WasPressedThisFrame();
 
         public float SensitivityMultiplier { get; set; } = 1.0f;
 

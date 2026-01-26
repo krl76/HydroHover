@@ -52,7 +52,7 @@ namespace Infrastructure.Services.Settings
             set
             {
                 _data.MusicVolume = value;
-                _audioService.SetVolume("Music", _data.IsMuted ? 0 : value); 
+                _audioService.SetVolume("MusicVolume", _data.IsMuted ? 0 : value); 
             }
         }
 
@@ -62,7 +62,7 @@ namespace Infrastructure.Services.Settings
             set
             {
                 _data.SFXVolume = value;
-                _audioService.SetVolume("SFX", _data.IsMuted ? 0 : value);
+                _audioService.SetVolume("SFXVolume", _data.IsMuted ? 0 : value);
             }
         }
 

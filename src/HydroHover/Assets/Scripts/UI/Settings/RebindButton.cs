@@ -1,4 +1,4 @@
-﻿using Infrastructure.Services.Input;
+﻿using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -8,7 +8,7 @@ namespace UI.Settings
 {
     public class RebindButton : MonoBehaviour
     {
-        [Header("UI References")]
+        [Header("UI")]
         [SerializeField] private TextMeshProUGUI _actionNameText;
         [SerializeField] private TextMeshProUGUI _bindingText;
         [SerializeField] private Button _button;
@@ -18,11 +18,14 @@ namespace UI.Settings
         private int _bindingIndex;
         private InputActionRebindingExtensions.RebindingOperation _rebindingOperation;
         
-        public void Setup(InputAction action, int bindingIndex, string displayName)
+        private Action _onRebindCompleted; 
+
+        public void Setup(InputAction action, int bindingIndex, string displayName, Action onRebindCompleted)
         {
             _action = action;
             _bindingIndex = bindingIndex;
             _actionNameText.text = displayName;
+            _onRebindCompleted = onRebindCompleted;
 
             UpdateBindingDisplay();
             
@@ -40,8 +43,8 @@ namespace UI.Settings
             _rebindingOperation = _action.PerformInteractiveRebinding(_bindingIndex)
                 .WithControlsExcluding("Mouse")
                 .OnMatchWaitForAnother(0.1f)
-                .OnComplete(_ => FinishRebinding())
-                .OnCancel(_ => FinishRebinding())
+                .OnComplete(operation => FinishRebinding())
+                .OnCancel(operation => FinishRebinding())
                 .Start();
         }
 
@@ -54,11 +57,11 @@ namespace UI.Settings
             
             if (_waitingOverlay) _waitingOverlay.SetActive(false);
             _button.interactable = true;
-
-            UpdateBindingDisplay();
+            
+            _onRebindCompleted?.Invoke(); 
         }
-
-        private void UpdateBindingDisplay()
+        
+        public void UpdateBindingDisplay()
         {
             if (_action != null)
             {

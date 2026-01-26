@@ -545,6 +545,7 @@ GameObject:
   - component: {fileID: 8805779591211182778}
   - component: {fileID: 2460878048102306970}
   - component: {fileID: 4437112810235704485}
+  - component: {fileID: 5674849095647846707}
   m_Layer: 5
   m_Name: RebindTemplate
   m_TagString: Untagged
@@ -616,6 +617,26 @@ MonoBehaviour:
   _bindingText: {fileID: 5272961731140112183}
   _button: {fileID: 5114705255458124072}
   _waitingOverlay: {fileID: 3053604997100946530}
+--- !u!114 &5674849095647846707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7897888888520549007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.LayoutElement
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: 500
+  m_PreferredWidth: -1
+  m_PreferredHeight: -1
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!1 &8786243966388802225
 GameObject:
   m_ObjectHideFlags: 0

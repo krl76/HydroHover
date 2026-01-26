@@ -127,15 +127,6 @@ public partial class @HoverControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Reset"",
-                    ""type"": ""Button"",
-                    ""id"": ""8993ee79-07e4-41b5-8624-1b8e6b3f52df"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -248,17 +239,6 @@ public partial class @HoverControls: IInputActionCollection2, IDisposable
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""0abe16cd-5119-4740-a483-0aa363bfbcc2"",
-                    ""path"": ""<Keyboard>/r"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Reset"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -271,7 +251,6 @@ public partial class @HoverControls: IInputActionCollection2, IDisposable
         m_Player_Lift = m_Player.FindAction("Lift", throwIfNotFound: true);
         m_Player_Handbrake = m_Player.FindAction("Handbrake", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
-        m_Player_Reset = m_Player.FindAction("Reset", throwIfNotFound: true);
     }
 
     ~@HoverControls()
@@ -356,7 +335,6 @@ public partial class @HoverControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Lift;
     private readonly InputAction m_Player_Handbrake;
     private readonly InputAction m_Player_Pause;
-    private readonly InputAction m_Player_Reset;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -384,10 +362,6 @@ public partial class @HoverControls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/Pause".
         /// </summary>
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
-        /// <summary>
-        /// Provides access to the underlying input action "Player/Reset".
-        /// </summary>
-        public InputAction @Reset => m_Wrapper.m_Player_Reset;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -426,9 +400,6 @@ public partial class @HoverControls: IInputActionCollection2, IDisposable
             @Pause.started += instance.OnPause;
             @Pause.performed += instance.OnPause;
             @Pause.canceled += instance.OnPause;
-            @Reset.started += instance.OnReset;
-            @Reset.performed += instance.OnReset;
-            @Reset.canceled += instance.OnReset;
         }
 
         /// <summary>
@@ -452,9 +423,6 @@ public partial class @HoverControls: IInputActionCollection2, IDisposable
             @Pause.started -= instance.OnPause;
             @Pause.performed -= instance.OnPause;
             @Pause.canceled -= instance.OnPause;
-            @Reset.started -= instance.OnReset;
-            @Reset.performed -= instance.OnReset;
-            @Reset.canceled -= instance.OnReset;
         }
 
         /// <summary>
@@ -523,12 +491,5 @@ public partial class @HoverControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnPause(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "Reset" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnReset(InputAction.CallbackContext context);
     }
 }

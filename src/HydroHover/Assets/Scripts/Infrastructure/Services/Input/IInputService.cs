@@ -9,7 +9,6 @@ namespace Infrastructure.Services.Input
         float LiftInput { get; }
         bool HandbrakeInput { get; }
         bool PauseTriggered { get; }
-        bool ResetTriggered { get; }
 
         float SensitivityMultiplier { get; set; }
 
