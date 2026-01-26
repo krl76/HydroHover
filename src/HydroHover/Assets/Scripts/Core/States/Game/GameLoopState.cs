@@ -25,22 +25,38 @@ namespace Core.States.Game
             _inputService.Enable();
             
             _raceService.OnRaceFinished += OnRaceFinished;
+            _inputService.OnPausePressed += OnPausePressed;
+        }
+        
+        private void OnPausePressed()
+        {
+            if (_windowService.IsWindowOpened(WindowID.Pause) || 
+                _windowService.IsWindowOpened(WindowID.Finish)) 
+                return;
+
+            _windowService.Open(WindowID.Pause);
         }
         
         private void OnRaceFinished()
         {
+            _inputService.OnPausePressed -= OnPausePressed;
+            
             _windowService.Close(WindowID.HUD);
-            
             _inputService.Disable();
-            
             _windowService.Open(WindowID.Finish);
         }
         
         public void Exit()
         {
             _raceService.OnRaceFinished -= OnRaceFinished;
+            _inputService.OnPausePressed -= OnPausePressed;
             
             _windowService.Close(WindowID.HUD);
+            
+            if (_windowService.IsWindowOpened(WindowID.Pause))
+            {
+                _windowService.Close(WindowID.Pause);
+            }
         }
     }
 }

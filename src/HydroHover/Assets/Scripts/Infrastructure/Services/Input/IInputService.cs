@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Infrastructure.Services.Input
@@ -8,10 +9,11 @@ namespace Infrastructure.Services.Input
         Vector2 MoveInput { get; }
         float LiftInput { get; }
         bool HandbrakeInput { get; }
-        bool PauseTriggered { get; }
 
         float SensitivityMultiplier { get; set; }
-
+        
+        event Action OnPausePressed;
+        
         void Enable();
         void Disable();
         

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using Infrastructure.Services.Player;
 using Infrastructure.Services.RaceManager;
 using Physics.Hover;
@@ -31,10 +30,12 @@ namespace UI.HUD
 
         private IPlayerService _playerService;
         private IRaceManagerService _raceManagerService;
-
         private HoverController _hoverController;
-
-        private float _fpsCount;
+        
+        private int _lastSpeed = -1;
+        private int _lastSeconds = -1;
+        private int _lastCheckpointIndex = -1;
+        private int _lastFps = -1;
 
         [Inject]
         public void Construct(IPlayerService playerService, IRaceManagerService raceManagerService)
@@ -45,32 +46,38 @@ namespace UI.HUD
 
         private void Start()
         {
-            UpdateGameMetrics();
+            StartCoroutine(UpdateGameMetrics());
         }
 
         private void Update()
         {
-            UpdatePhysics();
-            UpdateRaceInfo();
-        }
-
-        private void UpdatePhysics()
-        {
             if (!_playerService.IsPlayerCreated) return;
+            
             if (_hoverController == null)
             {
                 _hoverController = _playerService.Transform.gameObject.GetComponent<HoverController>();
                 return;
             }
-            
+
+            UpdatePhysicsUI();
+            UpdateRaceInfoUI();
+        }
+
+        private void UpdatePhysicsUI()
+        {
             var rb = _hoverController.Rb;
-            float speedKmh = rb.linearVelocity.magnitude * 3.6f;
-            _speedText.text = $"{speedKmh:F0} km/h";
             
-            float t = Mathf.InverseLerp(_minSpeed, _maxSpeed, speedKmh);
+            float rawSpeed = rb.linearVelocity.magnitude * 3.6f;
+            int displaySpeed = Mathf.RoundToInt(rawSpeed);
             
+            if (displaySpeed != _lastSpeed)
+            {
+                _speedText.text = $"{displaySpeed}";
+                _lastSpeed = displaySpeed;
+            }
+            
+            float t = Mathf.InverseLerp(_minSpeed, _maxSpeed, rawSpeed);
             float angle = Mathf.Lerp(_minAngle, _maxAngle, t);
-            
             _speedNeedle.localRotation = Quaternion.Euler(0, 0, angle);
             
             var lift = _hoverController.LiftEngine;
@@ -80,25 +87,40 @@ namespace UI.HUD
             if (_thrustBar) _thrustBar.fillAmount = thrust.CurrentRPM / thrust.MaxRPM;
         }
 
-        private void UpdateRaceInfo()
+        private void UpdateRaceInfoUI()
         {
-            float t = _raceManagerService.CurrentTime;
-            int minutes = (int)(t / 60);
-            int seconds = (int)(t % 60);
-            int milliseconds = (int)((t * 100) % 100);
-            _timerText.text = $"{minutes:00}:{seconds:00}.{milliseconds:00}";
-            
-            _checkpointText.text = $"{_raceManagerService.CurrentCheckpointIndex} / {_raceManagerService.TotalCheckpoints}";
+            float currentTime = _raceManagerService.CurrentTime;
 
-            _fpsText.text = $"FPS: {Mathf.Round(_fpsCount)}";
+            int minutes = (int)(currentTime / 60);
+            int seconds = (int)(currentTime % 60);
+            int milliseconds = (int)((currentTime * 100) % 100);
+            
+            _timerText.text = string.Format("{0:00}:{1:00}.{2:00}", minutes, seconds, milliseconds);
+            
+            int currentCp = _raceManagerService.CurrentCheckpointIndex;
+            if (currentCp != _lastCheckpointIndex)
+            {
+                _checkpointText.text = $"{currentCp} / {_raceManagerService.TotalCheckpoints}";
+                _lastCheckpointIndex = currentCp;
+            }
         }
 
         private IEnumerator UpdateGameMetrics()
         {
+            var wait = new WaitForSeconds(0.5f);
             while (true)
             {
-                _fpsCount = 1f / Time.unscaledDeltaTime;
-                yield return new WaitForSeconds(0.1f);
+                int fps = Mathf.RoundToInt(1f / Time.unscaledDeltaTime);
+                
+                if (fps != _lastFps && _fpsText != null)
+                {
+                    _fpsText.text = $"FPS: {fps}";
+                    _lastFps = fps;
+                    
+                    _fpsText.color = fps < 30 ? Color.red : Color.green;
+                }
+                
+                yield return wait;
             }
         }
     }

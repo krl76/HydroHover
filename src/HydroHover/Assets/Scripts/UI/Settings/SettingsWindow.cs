@@ -12,6 +12,10 @@ namespace UI.Settings
 {
     public class SettingsWindow : MonoBehaviour
     {
+        [Header("Visuals")]
+        [Tooltip("Объект (например, Image), который будет включаться только если настройки открыты из Паузы")]
+        [SerializeField] private GameObject _pauseBackground;
+
         [Header("Audio")]
         [SerializeField] private Toggle _muteToggle;
         [SerializeField] private Slider _masterSlider;
@@ -48,6 +52,11 @@ namespace UI.Settings
 
         private void Start()
         {
+            if (_pauseBackground != null)
+            {
+                _pauseBackground.SetActive(Time.timeScale == 0);
+            }
+
             CreateBackup();
             
             InitializeUI();
@@ -210,7 +219,15 @@ namespace UI.Settings
                 Debug.Log("Changes discarded.");
             }
             
-            _windowService.Open(WindowID.MainMenu);
+            if(Time.timeScale == 0) 
+            {
+                _windowService.Open(WindowID.Pause);
+            }
+            else 
+            {
+                _windowService.Open(WindowID.MainMenu);
+            }
+            
             _windowService.Close(WindowID.Settings);
         }
     }
