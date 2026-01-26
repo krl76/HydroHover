@@ -305,7 +305,7 @@ MonoBehaviour:
   _thrustEngine: {fileID: 3010054252799946518}
   _thrustPoint: {fileID: 4691849658525851087}
   _forwardForceMultiplier: 12000
-  _turnTorque: 3000
+  _brakeForce: 5
   _aerodynamics: {fileID: 5600941052184536383}
 --- !u!114 &5600941052184536383
 MonoBehaviour:

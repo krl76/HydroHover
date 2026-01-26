@@ -16,6 +16,10 @@ namespace Physics.Hover
         [Header("Power Config")]
         [SerializeField] private float _forwardForceMultiplier = 5000f;
         
+        [Header("Braking")]
+        [Tooltip("Сила торможения (применяется против вектора скорости)")]
+        [SerializeField] private float _brakeForce = 20f; 
+        
         [Header("Aerodynamics")]
         [SerializeField] private HoverAerodynamics _aerodynamics;
         
@@ -70,9 +74,30 @@ namespace Physics.Hover
                 _cushion.LiftEfficiency = liftFactor;
             }
             
+            if (_input != null && _input.HandbrakeInput)
+            {
+                ApplyBrakes();
+            }
+            else
+            {
+                ApplyThrust();
+            }
+        }
+        
+        private void ApplyBrakes()
+        {
+            Vector3 velocity = _rb.linearVelocity;
+            
+            if (velocity.sqrMagnitude > 0.1f)
+            {
+                _rb.AddForce(-velocity.normalized * _brakeForce, ForceMode.Acceleration);
+            }
+        }
+
+        private void ApplyThrust()
+        {
             if (_thrustPoint != null && _thrustEngine != null)
             {
-                // F = Torque * Multiplier
                 Vector3 force = transform.forward * (_thrustEngine.CurrentTorque * _forwardForceMultiplier);
                 _rb.AddForceAtPosition(force, _thrustPoint.position);
             }
