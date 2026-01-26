@@ -2,6 +2,7 @@
 using Core.States.Core;
 using Core.States.MainMenu;
 using Data;
+using Infrastructure.Services.Leaderboard;
 using Infrastructure.Services.RaceManager;
 using Infrastructure.Services.Window;
 using TMPro;
@@ -21,19 +22,28 @@ namespace UI.Finish
         private IRaceManagerService _raceService;
         private GameStateMachine _stateMachine;
         private IWindowService _windowService;
+        private ILeaderboardService _leaderboardService;
 
         [Inject]
-        public void Construct(IRaceManagerService raceService, GameStateMachine stateMachine, IWindowService windowService)
+        public void Construct(IRaceManagerService raceService, 
+            GameStateMachine stateMachine, IWindowService windowService, ILeaderboardService leaderboardService)
         {
             _raceService = raceService;
             _stateMachine = stateMachine;
             _windowService = windowService;
+            _leaderboardService = leaderboardService;
         }
 
         private void Start()
         {
-            float time = _raceService.CurrentTime;
-            _timeText.text = $"Time: {FormatTime(time)}";
+            float currentTime = _raceService.CurrentTime;
+            
+            _leaderboardService.AddRecord(currentTime);
+            
+            _timeText.text = $"Time: {FormatTime(currentTime)}";
+            
+            float best = _leaderboardService.GetBestTime();
+            _bestTimeText.text = $"Best: {FormatTime(best)}";
             
             _restartButton.onClick.AddListener(OnRestartClicked);
             _menuButton.onClick.AddListener(OnMenuClicked);

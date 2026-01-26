@@ -2,6 +2,7 @@
 using Infrastructure.Factories;
 using Infrastructure.Providers.Assets;
 using Infrastructure.Services.Input;
+using Infrastructure.Services.Leaderboard;
 using Infrastructure.Services.Player;
 using Infrastructure.Services.RaceManager;
 using Infrastructure.Services.SceneManagement;
@@ -39,6 +40,7 @@ namespace Infrastructure.Installers
             Container.Bind<IWindowService>().To<WindowService>().AsSingle();
             Container.Bind<IPlayerService>().To<PlayerService>().AsSingle();
             Container.Bind<IRaceManagerService>().To<RaceManagerService>().AsSingle();
+            Container.Bind<ILeaderboardService>().To<LeaderboardService>().AsSingle();
         }
     }
 }
