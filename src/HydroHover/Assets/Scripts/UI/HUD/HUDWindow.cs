@@ -72,7 +72,7 @@ namespace UI.HUD
             
             if (displaySpeed != _lastSpeed)
             {
-                _speedText.text = $"{displaySpeed}";
+                _speedText.text = $"{displaySpeed} km/h";
                 _lastSpeed = displaySpeed;
             }
             
