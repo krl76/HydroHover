@@ -31,7 +31,8 @@ namespace Core.States.Game
         private void OnPausePressed()
         {
             if (_windowService.IsWindowOpened(WindowID.Pause) || 
-                _windowService.IsWindowOpened(WindowID.Finish)) 
+                _windowService.IsWindowOpened(WindowID.Finish) || 
+                _windowService.IsWindowOpened(WindowID.Settings))
                 return;
 
             _windowService.Open(WindowID.Pause);
