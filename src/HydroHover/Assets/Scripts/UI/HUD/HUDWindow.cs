@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using Infrastructure.Services.Player;
 using Infrastructure.Services.RaceManager;
 using Physics.Hover;
@@ -47,6 +48,14 @@ namespace UI.HUD
         private void Start()
         {
             StartCoroutine(UpdateGameMetrics());
+            
+            _raceManagerService.OnRaceStarted += UpdateRaceInfoUI;
+            _raceManagerService.OnCheckpointPassed += OnCheckpointPassedHandler;
+            
+            if (_raceManagerService.IsRaceActive)
+            {
+                UpdateRaceInfoUI();
+            }
         }
 
         private void Update()
@@ -121,6 +130,20 @@ namespace UI.HUD
                 }
                 
                 yield return wait;
+            }
+        }
+        
+        private void OnCheckpointPassedHandler(int index)
+        {
+            UpdateRaceInfoUI();
+        }
+        
+        private void OnDestroy()
+        {
+            if (_raceManagerService != null)
+            {
+                _raceManagerService.OnRaceStarted -= UpdateRaceInfoUI;
+                _raceManagerService.OnCheckpointPassed -= OnCheckpointPassedHandler;
             }
         }
     }
