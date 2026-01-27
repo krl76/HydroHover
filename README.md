@@ -40,7 +40,7 @@
 ---
 
 ## 🛠 Технический стек
-*   **Engine:** Unity 2022.3 LTS / Unity 6
+*   **Engine:** Unity 6
 *   **Render Pipeline:** URP (Universal Render Pipeline)
 *   **Plugins:**
     *   Zenject (DI)
